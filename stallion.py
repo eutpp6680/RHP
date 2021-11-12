@@ -45,10 +45,12 @@ for x in range(1):
         ad_checker(sample_driver,check=True)
         for y in range(32):
             y += 1
-            sam = sample_driver.find_elements_by_xpath('//*[@id="contents"]/div[2]/diary_snap/table/tbody/tr[' + str(y) + ']')
-            for z in range(len(sam)):
+            for z in range(5):
                 z+=1
-                blood_list_1.append(sample_driver.find_element_by_xpath('//*[@id="contents"]/div[2]/diary_snap/table/tbody/tr[' + str(y) + ']/td['+str(z)+']').text)
+                try:
+                    blood_list_1.append(sample_driver.find_element_by_xpath('//*[@id="contents"]/div[2]/diary_snap/table/tbody/tr[' + str(y) + ']/td['+str(z)+']').text)
+                except:
+                    continue
         blood_list.append(blood_list_1)
         sample_driver.back()
         sample_driver.set_page_load_timeout(30)
