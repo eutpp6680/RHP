@@ -34,7 +34,7 @@ sample_driver.set_page_load_timeout(30)
 ad_checker(sample_driver,check=True)
 blood_list = []
 
-for x in range(1):
+for x in range(20):
     x += 2
     if 4==len(sample_driver.find_elements_by_xpath('//*[@id="contents_liquid"]/div/form/table/tbody/tr['+str(x)+']/td[5]/a')):
         sample_driver.find_element_by_xpath('//*[@id="contents_liquid"]/div/form/table/tbody/tr['+str(x)+']/td[5]/a[1]').click()
@@ -56,6 +56,7 @@ for x in range(1):
         sample_driver.set_page_load_timeout(30)
         ad_checker(sample_driver,check=True)
 blood_list = pd.DataFrame(blood_list)
+sample_driver.quit()
 
 parent = []
 parent.append("horse_id")
@@ -70,7 +71,7 @@ for parent1 in ["父","母"]:
                 for parent5 in ["父","母"]:
                     parent.append(parent1+parent2+parent3+parent4+parent5)
 
-for f in range(62):
+for f in range(63):
     col = parent[f]
     blood_list = blood_list.rename(columns={f:col})
 
