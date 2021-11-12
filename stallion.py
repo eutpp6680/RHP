@@ -34,7 +34,7 @@ sample_driver.set_page_load_timeout(30)
 ad_checker(sample_driver,check=True)
 blood_list = []
 
-for x in range(20):
+for x in range(1):
     x += 2
     if 4==len(sample_driver.find_elements_by_xpath('//*[@id="contents_liquid"]/div/form/table/tbody/tr['+str(x)+']/td[5]/a')):
         sample_driver.find_element_by_xpath('//*[@id="contents_liquid"]/div/form/table/tbody/tr['+str(x)+']/td[5]/a[1]').click()
@@ -47,7 +47,8 @@ for x in range(20):
             y += 1
             sam = sample_driver.find_elements_by_xpath('//*[@id="contents"]/div[2]/diary_snap/table/tbody/tr[' + str(y) + ']')
             for z in range(len(sam)):
-                blood_list_1.append(sam[z].text)
+                z+=1
+                blood_list_1.append(sample_driver.find_element_by_xpath('//*[@id="contents"]/div[2]/diary_snap/table/tbody/tr[' + str(y) + ']/td['+str(z)+']').text)
         blood_list.append(blood_list_1)
         sample_driver.back()
         sample_driver.set_page_load_timeout(30)
@@ -64,8 +65,10 @@ for parent1 in ["父","母"]:
             parent.append(parent1+parent2+parent3)
             for parent4 in ["父","母"]:
                 parent.append(parent1+parent2+parent3+parent4)
+                for parent5 in ["父","母"]:
+                    parent.append(parent1+parent2+parent3+parent4+parent5)
 
-for f in range(31):
+for f in range(62):
     col = parent[f]
     blood_list = blood_list.rename(columns={f:col})
 
