@@ -61,7 +61,6 @@ while v == True:
                     ad_checker(sample_driver,check=True)
             except:
                 break
-        blood_list = pd.DataFrame(blood_list)
         try:
             sample_driver.find_element_by_xpath('//*[@id="contents_liquid"]/div/div/div[2]/a[2]').click()
         except:
@@ -69,6 +68,7 @@ while v == True:
     except:
         v = False
 sample_driver.quit()
+blood_list = pd.DataFrame(blood_list)
 
 parent = []
 parent.append("horse_id")
@@ -87,7 +87,7 @@ for f in range(63):
     col = parent[f]
     blood_list = blood_list.rename(columns={f:col})
 
-blood_list.to_csv("stallion.csv",encoding="utf-8")
+blood_list.to_csv("CollectData/stallion.csv",encoding="utf-8")
 
 
 print(blood_list.iloc[:,:20])
@@ -95,12 +95,3 @@ print(blood_list.iloc[:,20:40])
 print(blood_list.iloc[:,60:80])
             
 
-
-
-#//*[@id="contents"]/div[2]/diary_snap/table/tbody/tr[1]/td[1]
-#//*[@id="contents"]/div[2]/diary_snap/table/tbody/tr[17]/td[1]
-
-#//*[@id="contents"]/div[2]/diary_snap/table/tbody/tr[1]/td[2]
-#//*[@id="contents"]/div[2]/diary_snap/table/tbody/tr[9]/td[1]
-#//*[@id="contents"]/div[2]/diary_snap/table/tbody/tr[17]/td[2]
-#//*[@id="contents"]/div[2]/diary_snap/table/tbody/tr[32]/td
