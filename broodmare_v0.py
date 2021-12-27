@@ -8,16 +8,16 @@ Created on Fri Dec 24 10:24:29 2021
 
 from bs4 import BeautifulSoup
 import re
-import pandas as pd
-import numpy as np
+#import pandas as pd
+#import numpy as np
 from tqdm import tqdm
-import pickle
+#import pickle
 import time
-import math
-import statistics
+#import math
+#import statistics
 from selenium import webdriver
-from selenium.webdriver.common.keys import Keys as keys
-from selenium.webdriver.common.by import By
+#from selenium.webdriver.common.keys import Keys as keys
+#from selenium.webdriver.common.by import By
 
 url='https://db.netkeiba.com/?pid=horse_search_detail'
 driver = webdriver.Chrome("chromedriver.exe")
@@ -55,11 +55,11 @@ for i in range(2):
                 continue
             
         kettou_list_list.extend(kettou_list)
-        element5=driver.find_element_by_link_text("éü")
+        element5=driver.find_element_by_link_text("Ê¨°")
         element5.click()
         time.sleep(1)
     except:
         continue
 
 #breedmare_df=pd.DataFrame(data=horse_id_list,columns=['horse_id'])
-#breedmare_df=breedmare_df.assign(înñº='')
+#breedmare_df=breedmare_df.assign(È¶¨Âêç='')
