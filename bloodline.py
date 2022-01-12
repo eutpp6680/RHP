@@ -136,7 +136,7 @@ while True:
     #next_button = driver.find_elements(By.XPATH, "/html/body/div[1]/div[2]/div/div/div[2]/a[2]")
     #time.sleep(5)
     #next_button.click()
-
+#
 df = DataFrame(data, columns=['ID','blood_path'])
 df.to_csv('id+path2.csv')
 
