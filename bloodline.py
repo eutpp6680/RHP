@@ -111,6 +111,8 @@ while True:
                 except:
                     print("going back error")
                     print(sets)
+                    df2 = DataFrame(sets, columns=['Date','Host','Weather','R_value','Race_name','Total_horse','Bracket_number','Horse_number','Odds','Popularity','Place','Rider','Penalty','Distance','Track_condition','Race_time','Margin','Passing','Pace','Fin','Horse_weight','Loser_horse','Prize'])
+                    df2.to_csv(str(num_id[0])+'.csv')
                     driver.back()
                     break
             #id_path = driver.find_element(By.XPATH, "/html/body/div[1]/div[2]/div/form/table/tbody/tr"+ str([x])+"/td[2]/a")
@@ -137,6 +139,4 @@ while True:
 
 df = DataFrame(data, columns=['ID','blood_path'])
 df.to_csv('id+path2.csv')
-df2 = DataFrame(sets, columns=['Date','Host','Weather','R_value','Race_name','Total_horse','Bracket_number','Horse_number','Odds','Popularity','Place','Rider','Penalty','Distance','Track_condition','Race_time','Margin','Passing','Pace','Fin','Horse_weight','Loser_horse','Prize'])
-df2.to_csv('table_winning.csv')
-#
+
